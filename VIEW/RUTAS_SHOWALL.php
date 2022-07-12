@@ -74,15 +74,15 @@ var $datos;
 ?>
                
                <tr id="fila<?php echo $contador ?>">
-                                                <td id="1"> <h3><?php echo $fila['nombre']; ?></h3> </td>
+                                                <td id="0"> <h3><?php echo $fila['nombre']; ?></h3> </td>
                                               
 												
-												<td id="2"> <?php echo $fila['descripcion']; ?> </td>
+												<td id="1"> <?php echo $fila['descripcion']; ?> </td>
 												
                                       
                                                 
 
-                 <td id="2"><button type="button" onclick="cambiacolor('<?php echo'fila'.$contador ?>')" class="btn btn-success">Completado</button></td>  
+                 <td><H3><a class="nav-link active" href="<?php echo $fila['enlace']; ?>">Ver ruta</a></H3></td>  
             
                  </tr>
 
