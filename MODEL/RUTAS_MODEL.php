@@ -11,8 +11,10 @@ class RUTAS_MODEL extends Abstract_Model
 {
 
 	//ATRIBUTOS
+	var $id;
 	var $nombre;
 	var $descripcion;
+	var $enlace;
 	var $conexion;
 
 	//METODOS
@@ -26,21 +28,28 @@ class RUTAS_MODEL extends Abstract_Model
 	function fillfields()
 	{
 
+		$this->id = '';
 		$this->nombre = '';
 		$this->descripcion = '';
+		$this->enlace = '';
 
 
 
 
 
 		if ($_POST) {
+			
+			if (isset($_POST['id'])) $this->nombre = $_POST['id'];
 			if (isset($_POST['nombre'])) $this->nombre = $_POST['nombre'];
 			if (isset($_POST['descripcion'])) $this->descripcion = $_POST['descripcion'];
+			if (isset($_POST['enlace'])) $this->descripcion = $_POST['enlace'];
 
 		} else {
 			if ($_GET) {
+				if (isset($_GET['id'])) $this->nombre = $_GET['id'];
 				if (isset($_GET['nombre'])) $this->nombre = $_GET['nombre'];
 				if (isset($_GET['descripcion'])) $this->descripcion = $_GET['descripcion'];
+				if (isset($_GET['enlace'])) $this->descripcion = $_GET['enlace'];
 
 			}
 		}
@@ -63,9 +72,11 @@ class RUTAS_MODEL extends Abstract_Model
 		// construimos la sentencia sql de búsqueda con comodines		
 		$this->query = "SELECT * FROM rutas
 	WHERE
-	(
+	(	
+		(id LIKE '%$this->id%') and
 		(nombre LIKE '%$this->nombre%') and
-		(descripcion LIKE '%$this->descripcion%')
+		(descripcion LIKE '%$this->descripcion%') and
+		(enlace LIKE '%$this->enlace%')
 
 
 
@@ -87,7 +98,7 @@ class RUTAS_MODEL extends Abstract_Model
 		$this->query = "SELECT * FROM rutas
 					WHERE
 					(
-						(nombre = '$this->nombre')
+						(id = '$this->id')
 					)";
 
 		$this->get_one_result_from_query();
