@@ -46,6 +46,7 @@ function render(){
   </div>
 </div>
 
+<input type='hidden' name='controlador' value='RUTAS'>
 <center><button type='submit' class="btn btn-primary" name='action'value='buscar_admin'>Buscar</button>
 <button type="button" class="btn btn-danger"onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar_admin'); insertacampo(document.formenviar,'controlador','RUTAS');enviaform(document.formenviar);">Atrás </button></center>
 

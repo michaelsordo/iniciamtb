@@ -51,7 +51,7 @@ var $datos;
 				<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-		<img alt="Bootstrap Image Preview" src='./VIEW/img/bicicleta.PNG' class="rounded" />
+		<img alt="Bootstrap Image Preview" with="1500" heigh="200" src='./VIEW/img/reto2_showall.PNG' />
 		</div>
 	</div>
 </div>
