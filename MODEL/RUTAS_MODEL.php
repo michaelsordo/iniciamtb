@@ -39,17 +39,17 @@ class RUTAS_MODEL extends Abstract_Model
 
 		if ($_POST) {
 			
-			if (isset($_POST['id'])) $this->nombre = $_POST['id'];
+			if (isset($_POST['id'])) $this->id = $_POST['id'];
 			if (isset($_POST['nombre'])) $this->nombre = $_POST['nombre'];
 			if (isset($_POST['descripcion'])) $this->descripcion = $_POST['descripcion'];
-			if (isset($_POST['enlace'])) $this->descripcion = $_POST['enlace'];
+			if (isset($_POST['enlace'])) $this->enlace = $_POST['enlace'];
 
 		} else {
 			if ($_GET) {
-				if (isset($_GET['id'])) $this->nombre = $_GET['id'];
+				if (isset($_GET['id'])) $this->id = $_GET['id'];
 				if (isset($_GET['nombre'])) $this->nombre = $_GET['nombre'];
 				if (isset($_GET['descripcion'])) $this->descripcion = $_GET['descripcion'];
-				if (isset($_GET['enlace'])) $this->descripcion = $_GET['enlace'];
+				if (isset($_GET['enlace'])) $this->enlace = $_GET['enlace'];
 
 			}
 		}
@@ -57,15 +57,49 @@ class RUTAS_MODEL extends Abstract_Model
 
 	
 	
+	function ADD()
+	{
 
+		$this->seek();
+		if (($this->feedback['code']) === '00004') { //existe el usuarios
+			$this->feedback['ok'] = false;
+			$this->feedback['code'] = '02101'; //usuarios ya existe
+			//$this->feedback['code'] = '02104'; //email ya existe
+		} else {
+			// construimos la sentencia de insercion en la bd
+			$this->query = 	"INSERT INTO rutas
+
+								(id,
+								nombre,
+								descripcion,
+								enlace
+								
+								)
+							VALUES
+								('$this->id',
+								'$this->nombre',
+								'$this->descripcion',
+								'$this->enlace'
+						
+								
+							)";
+			//var_dump($this->query);
+			$this->execute_single_query();
+
+			if ($this->feedback['ok']) {
+				$this->feedback['code'] = '00004'; //insertado con exito
+			} else {
+				if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
+					$this->feedback['code'] = '02106'; //insercion fallida
+			}
+		}
+
+		return $this->feedback;
+	}
 
 	
 
-	function ADD(){
-		
-		
-}
-
+	
 	function SEARCH()
 	{
 
@@ -130,13 +164,53 @@ class RUTAS_MODEL extends Abstract_Model
 	function EDIT()
 	{
 
+
+		// construimos la sentencia sql de búsqueda con valor concreto de clave		
+		$this->query = "UPDATE rutas SET
+					id = '$this->id',
+					nombre = '$this->nombre',
+					descripcion = '$this->descripcion',
+					enlace = '$this->enlace'
+					
+					
+					
+					WHERE
+					(id = '$this->id')
+					";
+
+		$this->execute_single_query();
+
+		if ($this->feedback['ok']) {
+			$this->feedback['code'] = '02002'; //modificado con exito
+		} else {
+			if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
+				$this->feedback['code'] = '02107'; //modificacion fallida
+		}
+
+		return $this->feedback;
 	}
 
 	function DELETE()
 	{
 
-		
+		// construimos la sentencia sql de borrado con el valor concreto de clave a borrar		
+		$this->query = "DELETE FROM rutas 
+					WHERE
+					(id = '$this->id')
+					";
+
+		$this->execute_single_query();
+
+		if ($this->feedback['ok']) {
+			$this->feedback['code'] = '00007'; //borrado con exito
+		} else {
+			if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
+				$this->feedback['code'] = '02108'; //borrado fallido
+		}
+
+		return $this->feedback;
 	}
+
 
 
 

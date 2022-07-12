@@ -33,7 +33,7 @@ var $datos;
   </li>
 </ul>
 <br>
-<br>
+
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -43,6 +43,7 @@ var $datos;
 				</h1>
 				<p>Escoge cualquiera de las rutas mensuales que te proponemos para entrenar.
 				</p>
+				<br>
 				<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">

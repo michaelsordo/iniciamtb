@@ -1,6 +1,6 @@
 <?php
 
-class FORO_SHOWALL_ADMIN{
+class RUTAS_SHOWALL_ADMIN{
 
 //ATRIBUTOS
 var $datos;
@@ -22,23 +22,23 @@ var $datos;
 <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Administración del Foro</h1>
+                        <h1 class="mt-4">Administración de Rutas</h1>
                         <ol class="breadcrumb mb-4">
                             
-                            <li class="breadcrumb-item active">Bienvenido a la tabla de muestra de mensajes</li>
+                            <li class="breadcrumb-item active">Bienvenido a la tabla de muestra de rutas</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
                                 <a class="En_esta_pantalla">En esta pantalla podrás añadir,buscar,editar eliminar y volver atrás,gracias a los botones interactivos.</a>
-                                <button type="button" class="btn btn-primary" height="20" width="20" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioinsertar'); insertacampo(document.formenviar,'controlador','FORO');enviaform(document.formenviar);">Añadir nuevo</button>
+                                <button type="button" class="btn btn-primary" height="20" width="20" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioinsertar'); insertacampo(document.formenviar,'controlador','RUTAS');enviaform(document.formenviar);">Añadir nuevo</button>
     &nbsp&nbsp
-    <img src='./VIEW/icons/busqueda.png'  style="cursor:pointer" height="20" width="20" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formulariobuscar'); insertacampo(document.formenviar,'controlador','FORO');enviaform(document.formenviar);">
+    <img src='./VIEW/icons/busqueda.png'  style="cursor:pointer" height="20" width="20" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formulariobuscar'); insertacampo(document.formenviar,'controlador','RUTAS');enviaform(document.formenviar);">
                             </div>
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                <a class="retos">Foro</a>
+                                <a class="retos">Rutas</a>
                                 
                                 
                             </div>
@@ -48,10 +48,10 @@ var $datos;
                                         <thead>
                                             <tr>    
                                                     <th class='id'>ID</th>
-                                                    <th class='mensaje'>Mensaje</th>
-                                                    <th class='usuario'>Usuario</th>
-                                                    <th class='titulo2'>Titulo</th>
-                                                    <th class='fecha'>Fecha</th>
+                                                    <th class='nombre'>Nombre</th>
+                                                    <th class='descripcion'>Descripcion</th>
+                                                    <th class='enlace'>Enlace</th>
+                                                 
                                                     
                                                  
                                                   
@@ -69,10 +69,10 @@ var $datos;
                
                <tr>
                     <td> <?php echo $fila['id']; ?> </td>
-                    <td> <?php echo $fila['mensaje']; ?> </td>
-                    <td> <?php echo $fila['usuario']; ?> </td>
-                    <td> <?php echo $fila['titulo']; ?> </td>
-                    <td> <?php echo $fila['fecha']; ?> </td>
+                    <td> <?php echo $fila['nombre']; ?> </td>
+                    <td> <?php echo $fila['descripcion']; ?> </td>
+                    <td> <?php echo $fila['enlace']; ?> </td>
+                 
 
          
                                                 
@@ -82,12 +82,12 @@ var $datos;
 
                     <td> 
 
-                        <button type="button" class="btn btn-primary" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioeditar'); insertacampo(document.formenviar,'controlador','FORO'); insertacampo(document.formenviar,'id','<?php echo $fila['id']; ?>'); enviaform(document.formenviar);">Editar</button>
+                        <button type="button" class="btn btn-primary" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioeditar'); insertacampo(document.formenviar,'controlador','RUTAS'); insertacampo(document.formenviar,'id','<?php echo $fila['id']; ?>'); enviaform(document.formenviar);">Editar</button>
                         
                     </td>
                     <td> 
 
-                    <button type="button" class="btn btn-danger" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioborrar'); insertacampo(document.formenviar,'controlador','FORO'); insertacampo(document.formenviar,'id','<?php echo $fila['id']; ?>'); enviaform(document.formenviar);">Eliminar</button>
+                    <button type="button" class="btn btn-danger" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioborrar'); insertacampo(document.formenviar,'controlador','RUTAS'); insertacampo(document.formenviar,'id','<?php echo $fila['id']; ?>'); enviaform(document.formenviar);">Eliminar</button>
                     </td>
                  </tr>
   

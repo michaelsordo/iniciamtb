@@ -47,7 +47,7 @@ class MENU_VIEW
 						<h2><a class="nav-link active" style="cursor:pointer" onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar_retos_admin'); insertacampo(document.formenviar,'controlador','RETOS');enviaform(document.formenviar);">Retos</a></h2>
 						</li>
 						<li class="nav-item">
-						<h2><a class="nav-link active" style="cursor:pointer" onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar_admin'); insertacampo(document.formenviar,'controlador','FORO');enviaform(document.formenviar);">Foro</a></h2>
+						<h2><a class="nav-link active" style="cursor:pointer" onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar_admin'); insertacampo(document.formenviar,'controlador','RUTAS');enviaform(document.formenviar);">Rutas</a></h2>
 						</li>
 					</ul>
 				</div>
@@ -89,7 +89,7 @@ class MENU_VIEW
 							</h3>
 							<center><img alt="Bootstrap Image Preview" width="80" height="80" src="./VIEW/img/foro.PNG" class="rounded-circle" /></center>
 							<center><p>
-								Administra el foro de comentarios
+								Administra las rutas
 							</p></center>
 							<center><strong>Busca,crea,edita o elimina</strong>.</center>
 						</div>

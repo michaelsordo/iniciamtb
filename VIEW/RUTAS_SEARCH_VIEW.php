@@ -1,6 +1,6 @@
 <?php
 
-class FORO_SEARCH{
+class RUTAS_SEARCH{
 
 function __construct(){
 	$this->render();
@@ -28,33 +28,26 @@ function render(){
   </div>
 </div>
 <div class="form-group">
-  <label class="control-label col-sm-2 mensaje" for="mensaje">Contraseña:</label>
+  <label class="control-label col-sm-2 nombre" for="nombre">Nombre:</label>
   <div class="col-sm-10">
-    <input type="text" name="mensaje" class="form-control">
+    <input type="text" name="nombre" class="form-control">
   </div>
 </div>
 <div class="form-group">
-  <label class="control-label col-sm-2 usuario" for="usuario">usuario:</label>
+  <label class="control-label col-sm-2 descripcion" for="descripcion">Descripcion:</label>
   <div class="col-sm-10">
-    <input type="text" name="usuario"class="form-control">
+    <input type="text" name="descripcion"class="form-control">
   </div>
 </div>
 <div class="form-group">
-  <label class="control-label col-sm-2 titulo" for="titulo">Titulo:</label>
+  <label class="control-label col-sm-2 enlace" for="enlace">Enlace:</label>
   <div class="col-sm-10">
-    <input type="text" name="titulo"class="form-control">
+    <input type="text" name="enlace"class="form-control">
   </div>
 </div>
-<div class="form-group">
-    <label class="control-label col-sm-2 fecha" for="fecha">Fecha:</label>
-    <div class="col-sm-10">
-      <input type="date" name="fecha"class="form-control">
-    </div>
-  </div>
 
-<input type='hidden' name='controlador' value='FORO'>
 <center><button type='submit' class="btn btn-primary" name='action'value='buscar_admin'>Buscar</button>
-<button type="button" class="btn btn-danger"onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar_admin'); insertacampo(document.formenviar,'controlador','FORO');enviaform(document.formenviar);">Atrás </button></center>
+<button type="button" class="btn btn-danger"onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar_admin'); insertacampo(document.formenviar,'controlador','RUTAS');enviaform(document.formenviar);">Atrás </button></center>
 
 
 

@@ -112,9 +112,9 @@ class MENUUSER_VIEW
 							</h3>
 							<center><img alt="Bootstrap Image Preview" width="80" height="80" src="./VIEW/img/foro.PNG" class="rounded-circle" /></center>
 							<center><p>
-								Debate en el foro
+								Rutas nuevas cada mes
 							</p></center>
-							<center><strong>Foro de discusión de temas de MTB</strong>.</center>
+							<center><strong>Selección de las mejores rutas MTB</strong>.</center>
 						</div>
 					</div>
 </div>
