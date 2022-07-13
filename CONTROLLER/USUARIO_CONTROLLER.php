@@ -13,6 +13,8 @@ class USUARIO{
 		include './VIEW/USUARIO_SEARCH_VIEW.php';
 		include './MODEL/USUARIO_MODEL.php';
 		include './VIEW/PERFIL_EDIT_VIEW.php';
+		include './VIEW/MENU_VIEW.php';
+		include './VIEW/MENUUSER_VIEW.php';
 
 	}
 	
@@ -56,6 +58,30 @@ class USUARIO{
 
 	
 	}
+
+	function buscar_admin(){
+
+		$usuario = new USUARIO_MODEL();
+
+		$respuesta = $usuario->SEARCH();
+
+		// construimos una tabla html empezando con los titulos de las columnas para mostrar los resultados de la busqueda
+		if ($respuesta['ok'] === true){
+		// construimos una tabla html empezando con los titulos de las columnas para mostrar los resultados de la busqueda
+			if($_SESSION['es_admin']=='SI'){
+				new MENU_VIEW($respuesta['resource']);
+
+			}else{
+				new MENUUSER_VIEW($respuesta['resource']);
+			}
+			
+		}
+		else{
+			new MESSAGE1($respuesta,'USUARIO','buscar');
+		}
+
+
+}
 	
 	function formularioeditar(){
 		// recuperamos el valor que viene por get de la tabla de resultado de búsqueda
@@ -96,7 +122,7 @@ function editar_perfil(){
 
 	$respuesta = $usuario->EDIT_PERFIL();
 
-	new MESSAGE1($respuesta, 'USUARIO', 'buscar');
+	new MESSAGE1($respuesta, 'USUARIO', 'buscar_admin');
 
 
 } //end of function editar
