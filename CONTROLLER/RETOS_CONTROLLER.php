@@ -14,6 +14,8 @@ class RETOS{
 		include './VIEW/RETOS_EDIT_VIEW.php';
 		include './VIEW/RETOS_DELETE_VIEW.php';
 		include './VIEW/MESSAGE_VIEW.php';
+		include './VIEW/MIS_RETOS_SHOWALL.php';
+		include './VIEW/MIS_RETOS_ADD.php';
         
 
 
@@ -32,6 +34,17 @@ class RETOS{
 	}
 
 
+	function formularioinsertar2(){
+
+	// recuperamos el valor que viene por get de la tabla de resultado de búsqueda
+	$reto = new RETOS_MODEL();
+
+	$fila = $reto->seek();
+
+	// construimos un formulario con los valores por defecto de la tupla de la usuario que queremos modificar
+	new MIS_RETOS_ADD($fila);
+		
+	}
 
 
 	function insertar(){
@@ -46,6 +59,19 @@ class RETOS{
 			
 				
 	} //end of function insertar 
+
+	function insertar2(){
+
+		
+		$retos = new RETOS_MODEL();
+		//comprobamos el resultado de la ejecución de la sentencia sql en la bd
+
+		$respuesta = $retos->add_retos_usuario();
+
+		new MESSAGE1($respuesta,'RETOS', 'buscar_usuario');
+		
+			
+} //end of function insertar 
 	
 	function buscar(){
 
@@ -61,6 +87,24 @@ class RETOS{
 		else{
 			new MESSAGE1($respuesta,'RETO','buscar');
 		}
+
+
+}
+
+function buscar_usuario(){
+
+	$reto = new RETOS_MODEL();
+
+	$respuesta = $reto->SEARCH_retos_usuario();
+
+	// construimos una tabla html empezando con los titulos de las columnas para mostrar los resultados de la busqueda
+	if ($respuesta['ok'] === true){
+	// construimos una tabla html empezando con los titulos de las columnas para mostrar los resultados de la busqueda
+		new MIS_RETOS_SHOWALL($respuesta['resource']);
+	}
+	else{
+		new MESSAGE1($respuesta,'RETO','buscar');
+	}
 
 
 }

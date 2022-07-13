@@ -13,6 +13,8 @@ class RETOS_MODEL extends Abstract_Model
 	//ATRIBUTOS
 	var $nombre;
 	var $tipo;
+	var $nombre_reto;
+	var $nombre_usuario;
 	var $conexion;
 
 	//METODOS
@@ -28,6 +30,8 @@ class RETOS_MODEL extends Abstract_Model
 
 		$this->nombre = '';
 		$this->tipo = '';
+		$this->nombre_usuario = '';
+		$this->nombre_reto = '';
 
 
 
@@ -36,11 +40,15 @@ class RETOS_MODEL extends Abstract_Model
 		if ($_POST) {
 			if (isset($_POST['nombre'])) $this->nombre = $_POST['nombre'];
 			if (isset($_POST['tipo'])) $this->tipo = $_POST['tipo'];
+			if (isset($_POST['nombre_usuario'])) $this->tipo = $_POST['nombre_usuario'];
+			if (isset($_POST['nombre_reto'])) $this->tipo = $_POST['nombre_reto'];
 
 		} else {
 			if ($_GET) {
 				if (isset($_GET['nombre'])) $this->nombre = $_GET['nombre'];
 				if (isset($_GET['tipo'])) $this->tipo = $_GET['tipo'];
+				if (isset($_GET['nombre_usuario'])) $this->nombre = $_GET['nombre_usuario'];
+				if (isset($_GET['nombre_reto'])) $this->tipo = $_GET['nombre_reto'];
 
 			}
 		}
@@ -48,6 +56,66 @@ class RETOS_MODEL extends Abstract_Model
 
 	
 	
+
+	function add_retos_usuario()
+	{
+
+		$this->seek();
+		if (($this->feedback['code']) === '00004') { //existe el usuarios
+			$this->feedback['ok'] = false;
+			$this->feedback['code'] = '02101'; //usuarios ya existe
+			//$this->feedback['code'] = '02104'; //email ya existe
+		} else {
+			// construimos la sentencia de insercion en la bd
+			$this->query = 	"INSERT INTO retos_realizados
+
+								(nombre_reto,
+								nombre_usuario
+								
+								)
+							VALUES
+								('$this->nombre_reto',
+								'$_SESSION[nombre_usuario]'
+						
+								
+							)";
+			//var_dump($this->query);
+			$this->execute_single_query();
+
+			if ($this->feedback['ok']) {
+				$this->feedback['code'] = '00004'; //insertado con exito
+			} else {
+				if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
+					$this->feedback['code'] = '02106'; //insercion fallida
+			}
+		}
+
+		return $this->feedback;
+	}
+
+	function SEARCH_retos_usuario()
+	{
+
+		// construimos la sentencia sql de búsqueda con comodines		
+		$this->query = "SELECT * FROM retos_realizados
+	WHERE
+	(
+		(nombre_reto LIKE '%$this->nombre_reto%') and
+		(nombre_usuario = '$_SESSION[nombre_usuario]')
+
+
+
+	)";
+		// ejecutamos la consulta y guardamos los resultados en una variable
+		$this->get_results_from_query();
+
+		if ($this->feedback['ok'] === true) {
+			$this->feedback['resource'] = $this->rows;
+		}
+
+		return $this->feedback;
+	} //fin de searchall
+
 
 
 	
@@ -196,6 +264,11 @@ class RETOS_MODEL extends Abstract_Model
 
 		return $this->feedback;
 	}
+
+
+
+
+	
 
 
 
