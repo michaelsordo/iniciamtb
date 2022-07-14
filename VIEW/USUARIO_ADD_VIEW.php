@@ -52,7 +52,7 @@ function render(){
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       
-	<center><button type="button" class="btn btn-primary" onclick = "insertacampo(document.formularioinsertar,'action','insertar'); insertacampo(document.formularioinsertar,'controlador','USUARIO'); enviaform(document.formularioinsertar); enviaformcorrecto(document.formularioinsertar, encriptar());"> Añadir </button> 
+	<center><button type="button" class="btn btn-primary" onclick = "insertacampo(document.formularioinsertar,'action','insertar'); insertacampo(document.formularioinsertar,'controlador','USUARIO'); enviaform(document.formularioinsertar); enviaformcorrecto(document.formularioinsertar);"> Añadir </button> 
   <button type="button" class="btn btn-danger" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar'); insertacampo(document.formenviar,'controlador','USUARIO');enviaform(document.formenviar);">Cancelar</center>
 
     </div>
