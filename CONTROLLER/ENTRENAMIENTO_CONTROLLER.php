@@ -31,6 +31,30 @@ class ENTRENAMIENTO{
 
 	
 	}
+
+	function anadir50(){
+		$entrenamiento = new ENTRENAMIENTO_MODEL();
+		$entrenamiento-> nombre_usuario=$_SESSION['nombre_usuario'];
+		$entrenamiento-> id_entrenamiento="50km";
+		$entrenamiento-> ADD();
+		$this->buscar2();
+
+	
+
+	
+	}
+
+	function anadir100(){
+		$entrenamiento = new ENTRENAMIENTO_MODEL();
+		$entrenamiento-> nombre_usuario=$_SESSION['nombre_usuario'];
+		$entrenamiento-> id_entrenamiento="100km";
+		$entrenamiento-> ADD();
+		$this->buscar2();
+
+	
+
+	
+	}
 	
 	function formularioinsertar(){
 
