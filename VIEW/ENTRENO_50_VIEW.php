@@ -26,6 +26,10 @@ var $datos;
 				</h1>
       </div>
     
+	  <button type="button" class="btn btn-primary" height="20" width="20" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioinsertar'); insertacampo(document.formenviar,'controlador','USUARIO');enviaform(document.formenviar);">Comenzar entramiento</button>
+				<br>
+				<br>
+
 
   <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -774,7 +778,7 @@ var $datos;
 
 </div>
 
-<img src='./VIEW/icons/volver.png' height="40" width="40" onclick = "crearform('formenviar','post'); /*insertacampo(document.formenviar,'action',''); insertacampo(document.formenviar,'controlador','');*/enviaform(document.formenviar);">
+<img src='./VIEW/icons/volver.png' height="40" width="40" onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar'); insertacampo(document.formenviar,'controlador','ENTRENAMIENTO');enviaform(document.formenviar);">
 <br></br>
 <br></br>
 <br></br>
