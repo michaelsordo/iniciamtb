@@ -127,53 +127,8 @@ var $datos;
 
 
 
-      <!--pruebas-->
       
-      <h3 class="text">
-								Historial de retos realizados
-							</h3>
-							<br>
-					<div class="row">
-						<div class="col-md-12">
-						<table name="mitabla" class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr class="table-success">
-                                            <th id="0" class='nombre_reto'>Nombre del reto</th>
-                                            
-                                     
-                                        </thead>
-                                       
-
-<!--Estamos aqui-->
-<?php		
-			$mysqli = new mysqli("localhost", "root", "", "tfg"); 
-			$query = "SELECT nombre_reto
-                         FROM retos_realizados
-                         WHERE nombre_usuario = '$_SESSION[nombre_usuario]'";
-            //echo var_dump($query);
-			
-			if ($result = $mysqli->query($query)) {
-				while ($row = $result->fetch_assoc()) {
-					$nombre_reto = $row["nombre_reto"];
-				
-
-			
-					echo '<tr> 
-						<td>'.$nombre_reto.'</td>
-						
-
-						  </tr>';
-				}
-				$result->free();
-			} 
-			
-?>
-
-
-                </table>
-
-<br>
-<br>
+      
 
 <img src='./VIEW/icons/volver.png' style="cursor:pointer" height="40" width="40" onclick = "crearform('formenviar','post'); /*insertacampo(document.formenviar,'action',''); insertacampo(document.formenviar,'controlador','');*/enviaform(document.formenviar);">
 <br></br>

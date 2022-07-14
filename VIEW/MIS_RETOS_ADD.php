@@ -39,9 +39,9 @@ class MIS_RETOS_ADD
 
 		<form class="form-horizontal" name="formularioinsertar" id="formularioinsertar" action="index.php" method="post">
   <div class="form-group">
-    <label class="control-label col-sm-2 nombre_reto" for="nombre_reto">Nombre reto:</label>
+    <label class="control-label col-sm-2 nombre" for="nombre">Nombre reto:</label>
     <div class="col-sm-10">
-      <input type="text" name="nombre_reto" nombre="nombre_reto" class="form-control" value="<?php echo $this->fila['nombre']; ?>" readonly>
+      <input type="text" name="nombre" nombre="nombre" class="form-control" value="<?php echo $this->fila['nombre']; ?>" readonly>
     </div>
   </div>
   <div class="form-group">

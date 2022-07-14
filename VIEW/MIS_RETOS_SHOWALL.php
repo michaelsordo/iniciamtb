@@ -118,7 +118,7 @@ var $datos;
       <!--pruebas-->
       
       <h3 class="text">
-								Historial de retos realizados
+								Total de retos completados
 							</h3>
 							<br>
 					<div class="row">
@@ -126,7 +126,7 @@ var $datos;
 						<table name="mitabla" class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr class="table-success">
-                                            <th id="0" class='nombre_reto'>Nombre del reto</th>
+                                            <th id="0" class='nombre_reto'>Retos totales completados</th>
                                             
                                      
                                         </thead>
@@ -135,19 +135,19 @@ var $datos;
 <!--Estamos aqui-->
 <?php		
 			$mysqli = new mysqli("localhost", "root", "", "tfg"); 
-			$query = "SELECT nombre_reto
+			$query = "SELECT COUNT(*) as Total
                          FROM retos_realizados
                          WHERE nombre_usuario = '$_SESSION[nombre_usuario]'";
             //echo var_dump($query);
 			
 			if ($result = $mysqli->query($query)) {
 				while ($row = $result->fetch_assoc()) {
-					$nombre_reto = $row["nombre_reto"];
+					$Total = $row["Total"];
 				
 
 			
 					echo '<tr> 
-						<td>'.$nombre_reto.'</td>
+						<h2><td>'.$Total.'</td></h2>
 						
 
 						  </tr>';

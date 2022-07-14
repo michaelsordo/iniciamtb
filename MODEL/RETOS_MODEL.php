@@ -77,7 +77,7 @@ class RETOS_MODEL extends Abstract_Model
 								
 								)
 							VALUES
-								('$this->nombre_reto',
+								('$this->nombre',
 								'$this->nombre_usuario'
 						
 								
