@@ -91,7 +91,7 @@ var $datos;
 
                     <td> 
 
-                    <button type="button" class="btn btn-danger" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioborrar2'); insertacampo(document.formenviar,'controlador','RETOS'); insertacampo(document.formenviar,'nombre_reto','<?php echo $fila['nombre_reto']; ?>'); enviaform(document.formenviar);">Eliminar</button>
+                    <button type="button" class="btn btn-danger" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioborrar_usuario'); insertacampo(document.formenviar,'controlador','RETOS'); insertacampo(document.formenviar,'nombre_reto','<?php echo $fila['nombre_reto']; ?>'); enviaform(document.formenviar);">Eliminar</button>
                     </td>
                  </tr>
   

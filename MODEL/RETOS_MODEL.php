@@ -289,7 +289,7 @@ class RETOS_MODEL extends Abstract_Model
 
 
 
-	function DELETE_mis_retos()
+	function DELETE_MIS_RETOS()
 	{
 
 		// construimos la sentencia sql de borrado con el valor concreto de clave a borrar		

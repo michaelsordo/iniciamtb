@@ -125,6 +125,8 @@ class ENTRENAMIENTO_MODEL extends Abstract_Model
 		return $fila;
 	}
 
+
+
 	function EDIT()
 	{
 
@@ -133,7 +135,22 @@ class ENTRENAMIENTO_MODEL extends Abstract_Model
 	function DELETE()
 	{
 
-		
+		// construimos la sentencia sql de borrado con el valor concreto de clave a borrar		
+		$this->query = "DELETE FROM entrenamientos 
+					WHERE
+					(id_entrenamiento = '$this->id_entrenamiento')
+					";
+
+		$this->execute_single_query();
+
+		if ($this->feedback['ok']) {
+			$this->feedback['code'] = '02003'; //borrado con exito
+		} else {
+			if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
+				$this->feedback['code'] = '02108'; //borrado fallido
+		}
+
+		return $this->feedback;
 	}
 
 

@@ -180,7 +180,7 @@ function formularioborrar(){
 		new RETOS_DELETE($fila);	
 }
 
-function formularioborrar2(){
+function formularioborrar_usuario(){
 	// recuperamos el valor que viene por get de la tabla de resultado de búsqueda
 		$retos_usuario = new RETOS_MODEL();
 
@@ -203,7 +203,7 @@ function borrar(){
 		
 } //end of function borrar
 
-function borrar2(){
+function borrar_usuario(){
 
 	$retos_usuario = new RETOS_MODEL();
 	//comprobamos el resultado de la ejecución de la sentencia sql en la bd

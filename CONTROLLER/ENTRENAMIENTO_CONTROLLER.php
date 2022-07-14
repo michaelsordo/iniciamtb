@@ -13,6 +13,7 @@ class ENTRENAMIENTO{
 		include './MODEL/ENTRENAMIENTO_MODEL.php';
 		include './VIEW/MESSAGE_VIEW.php';
 		include './VIEW/MIS_ENTRENOS_SHOWALL.php';
+		include './VIEW/MIS_ENTRENOS_DELETE_VIEW.php';
 
         
 
@@ -23,6 +24,29 @@ class ENTRENAMIENTO{
 
 		
 	}
+
+	function formularioborrar(){
+		// recuperamos el valor que viene por get de la tabla de resultado de búsqueda
+			$entrenamiento = new ENTRENAMIENTO_MODEL();
+
+			$fila = $entrenamiento->seek();
+
+
+			// construimos un formulario con los valores por defecto de la tupla de la usuario que queremos modificar
+
+			new MIS_ENTRENOS_DELETE($fila);	
+	}
+
+	function borrar(){
+
+			$entrenamiento = new ENTRENAMIENTO_MODEL();
+			//comprobamos el resultado de la ejecución de la sentencia sql en la bd
+
+			$respuesta = $entrenamiento->DELETE();
+
+			new MESSAGE1($respuesta, 'ENTRENAMIENTO', 'buscar');
+			
+} //end of function borrar
 
 
 	function insertar(){

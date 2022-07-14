@@ -93,7 +93,7 @@ var $datos;
 
                     <td> 
 
-                    <button type="button" class="btn btn-danger" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioborrar2'); insertacampo(document.formenviar,'controlador','RETOS'); insertacampo(document.formenviar,'nombre_reto','<?php echo $fila['nombre_reto']; ?>'); enviaform(document.formenviar);">Marcar como finalizado</button>
+                    <button type="button" class="btn btn-danger" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioborrar'); insertacampo(document.formenviar,'controlador','ENTRENAMIENTO'); insertacampo(document.formenviar,'id_entrenamiento','<?php echo $fila['id_entrenamiento']; ?>'); enviaform(document.formenviar);">Marcar finalizado</button>
                     </td>
                  </tr>
   

@@ -31,19 +31,7 @@ abstract class Abstract_Model{
 
 	function connection(){
 		
-		if (isset($_SESSION['test'])){ //estamos realizando un test
-			// conectamos con el gestor con el usuario y password
-			$this->conn = new mysqli(self::$db_host, self::$db_user, self::$db_pass); 
-			if (!$this->conn->select_db(self::$db_test)){ // si no existe la bd de test
-				// leemos el fichero de sql de la bd de test
-				$fileSQL = file_get_contents('./MODEL/ET1_test.sql');
-				// creamos la bd de test
-				$this->conn->multi_query($fileSQL);
-			}
-			// seleccionamos y devolvemos la respuesta de conectarnos a la bd de test
-			return($this->conn = new mysqli(self::$db_host, self::$db_user, self::$db_pass, self::$db_test) or die('fallo conexion'));
-		}
-		else{
+	
 			$this->conn = new mysqli(self::$db_host, self::$db_user, self::$db_pass); 
 			if (!$this->conn->select_db(self::$db_name)){ // si no existe la bd de test
 				// leemos el fichero de sql de la bd de test
@@ -53,7 +41,7 @@ abstract class Abstract_Model{
 			}
 			// seleccionamos y devolvemos la respuesta de conectarnos a la bd de ejecucion
 			return($this->conn = new mysqli(self::$db_host, self::$db_user, self::$db_pass, self::$db_name) or die('fallo conexion'));
-		}
+		
 	}
 
 # Desconectar la base de datos

@@ -37,7 +37,7 @@ class MIS_RETOS_ADD
         <center><form name="formretosedit" action="index.php" method="post">
 
 
-		<form class="form-horizontal" name="formularioinsertar" action="index.php" method="post">
+		<form class="form-horizontal" name="formularioinsertar" id="formularioinsertar" action="index.php" method="post">
   <div class="form-group">
     <label class="control-label col-sm-2 nombre_reto" for="nombre_reto">Nombre reto:</label>
     <div class="col-sm-10">
