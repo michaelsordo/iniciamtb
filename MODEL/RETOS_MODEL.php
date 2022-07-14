@@ -30,8 +30,9 @@ class RETOS_MODEL extends Abstract_Model
 
 		$this->nombre = '';
 		$this->tipo = '';
-		$this->nombre_usuario = '';
 		$this->nombre_reto = '';
+		$this->nombre_usuario = '';
+	
 
 
 
@@ -40,15 +41,17 @@ class RETOS_MODEL extends Abstract_Model
 		if ($_POST) {
 			if (isset($_POST['nombre'])) $this->nombre = $_POST['nombre'];
 			if (isset($_POST['tipo'])) $this->tipo = $_POST['tipo'];
-			if (isset($_POST['nombre_usuario'])) $this->tipo = $_POST['nombre_usuario'];
-			if (isset($_POST['nombre_reto'])) $this->tipo = $_POST['nombre_reto'];
+			if (isset($_POST['nombre_reto'])) $this->nombre_reto = $_POST['nombre_reto'];
+			if (isset($_POST['nombre_usuario'])) $this->nombre_usuario = $_POST['nombre_usuario'];
+	
 
 		} else {
 			if ($_GET) {
 				if (isset($_GET['nombre'])) $this->nombre = $_GET['nombre'];
 				if (isset($_GET['tipo'])) $this->tipo = $_GET['tipo'];
-				if (isset($_GET['nombre_usuario'])) $this->nombre = $_GET['nombre_usuario'];
-				if (isset($_GET['nombre_reto'])) $this->tipo = $_GET['nombre_reto'];
+				if (isset($_GET['nombre_reto'])) $this->nombre_reto = $_GET['nombre_reto'];
+				if (isset($_GET['nombre_usuario'])) $this->nombre_usuario = $_GET['nombre_usuario'];
+			
 
 			}
 		}
@@ -75,7 +78,7 @@ class RETOS_MODEL extends Abstract_Model
 								)
 							VALUES
 								('$this->nombre_reto',
-								'$_SESSION[nombre_usuario]'
+								'$this->nombre_usuario'
 						
 								
 							)";
@@ -215,6 +218,25 @@ class RETOS_MODEL extends Abstract_Model
 		return $fila;
 	}
 
+	function getById2($atributo, $valor)
+	{
+
+		// construimos la sentencia sql de búsqueda con valor concreto de clave		
+		$sql = "SELECT * FROM retos_realizados
+					WHERE
+					(
+						($atributo = '$valor')
+					)";
+
+		$this->get_one_result_from_query();
+
+		// recuperamos la unica fila que viene en el recordset resultado de la consulta
+		$fila = $this->rows;
+
+		return $fila;
+	}
+
+
 
 	function EDIT()
 	{
@@ -251,6 +273,29 @@ class RETOS_MODEL extends Abstract_Model
 		$this->query = "DELETE FROM retos 
 					WHERE
 					(nombre = '$this->nombre')
+					";
+
+		$this->execute_single_query();
+
+		if ($this->feedback['ok']) {
+			$this->feedback['code'] = '00006'; //borrado con exito
+		} else {
+			if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
+				$this->feedback['code'] = '02108'; //borrado fallido
+		}
+
+		return $this->feedback;
+	}
+
+
+
+	function DELETE_mis_retos()
+	{
+
+		// construimos la sentencia sql de borrado con el valor concreto de clave a borrar		
+		$this->query = "DELETE FROM retos_realizados 
+					WHERE
+					(nombre_reto = '$this->nombre_reto')
 					";
 
 		$this->execute_single_query();

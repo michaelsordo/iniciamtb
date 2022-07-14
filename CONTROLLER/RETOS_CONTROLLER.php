@@ -16,6 +16,7 @@ class RETOS{
 		include './VIEW/MESSAGE_VIEW.php';
 		include './VIEW/MIS_RETOS_SHOWALL.php';
 		include './VIEW/MIS_RETOS_ADD.php';
+		include './VIEW/MIS_RETOS_DELETE.php';
         
 
 
@@ -85,7 +86,7 @@ class RETOS{
 			new RETOS_SHOWALL($respuesta['resource']);
 		}
 		else{
-			new MESSAGE1($respuesta,'RETO','buscar');
+			new MESSAGE1($respuesta,'RETOS','buscar');
 		}
 
 
@@ -103,7 +104,7 @@ function buscar_usuario(){
 		new MIS_RETOS_SHOWALL($respuesta['resource']);
 	}
 	else{
-		new MESSAGE1($respuesta,'RETO','buscar');
+		new MESSAGE1($respuesta,'RETOS','buscar');
 	}
 
 
@@ -139,6 +140,16 @@ function formularioeditar(){
 		new RETOS_EDIT($fila);
 }
 
+function formularioeditar2(){
+	// recuperamos el valor que viene por get de la tabla de resultado de búsqueda
+		$reto = new RETOS_MODEL();
+
+		$fila = $reto->seek();
+
+		// construimos un formulario con los valores por defecto de la tupla de la usuario que queremos modificar
+		new MIS_RETOS_ADD($fila);
+}
+
 
 
 function editar(){
@@ -169,6 +180,18 @@ function formularioborrar(){
 		new RETOS_DELETE($fila);	
 }
 
+function formularioborrar2(){
+	// recuperamos el valor que viene por get de la tabla de resultado de búsqueda
+		$retos_usuario = new RETOS_MODEL();
+
+		$fila = $retos_usuario->seek();
+
+
+		// construimos un formulario con los valores por defecto de la tupla de la usuario que queremos modificar
+
+		new MIS_RETOS_DELETE($fila);	
+}
+
 function borrar(){
 
 		$retos_admin = new RETOS_MODEL();
@@ -179,6 +202,21 @@ function borrar(){
 		new MESSAGE1($respuesta, 'RETOS', 'buscar_retos_admin');
 		
 } //end of function borrar
+
+function borrar2(){
+
+	$retos_usuario = new RETOS_MODEL();
+	//comprobamos el resultado de la ejecución de la sentencia sql en la bd
+
+	$respuesta = $retos_usuario->DELETE_mis_retos();
+
+	new MESSAGE1($respuesta, 'RETOS', 'buscar_usuario');
+	
+} //end of function borrar
+
+
+
+
 
 
 	function desconectar(){

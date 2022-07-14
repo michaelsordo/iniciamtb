@@ -43,7 +43,7 @@ var $datos;
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1>
-					Mi historial <small>Revisa todos tus retos completados.</small>
+					Historial! <small>Revisa tus retos completados.</small>
 				</h1>
 				<div class="container-fluid">
 	<div class="row">
@@ -54,7 +54,58 @@ var $datos;
 </div>
 
 <div class="card-body">
-<h3 class="text">
+                                <div class="table">
+                                    <table name="mitabla" class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                    <th class='nombre_reto'>Nombre reto</th>
+                                                  
+                                                   
+
+                                        </thead>
+                                       
+
+<?php
+
+            foreach ($this->datos as $fila)
+            {
+                // para cada fila que viene en el array la escribimos en una fila de la tabla html y cada atributo en una columna (no es un recordset sino un array asociativo)
+
+?>
+               
+               <tr>
+                    <td> <h3><?php echo $fila['nombre_reto']; ?></h3> </td>
+        
+
+                    <td> 
+
+                    <button type="button" class="btn btn-danger" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioborrar2'); insertacampo(document.formenviar,'controlador','RETOS'); insertacampo(document.formenviar,'nombre_reto','<?php echo $fila['nombre_reto']; ?>'); enviaform(document.formenviar);">Eliminar</button>
+                    </td>
+                 </tr>
+  
+               
+<?php
+            }
+?>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+</div>
+</div>
+
+<br>
+
+
+
+
+      <!--pruebas-->
+      
+      <h3 class="text">
 								Historial de retos realizados
 							</h3>
 							<br>
@@ -96,25 +147,6 @@ var $datos;
 
 
                 </table>
-
-
-                </table>
-            </div>
-        </div>
-    </div>
-    </div>
-</main>
-</div>
-</div>
-
-<br>
-
-
-
-
-      <!--pruebas-->
-      
-      
 
 <br>
 <br>

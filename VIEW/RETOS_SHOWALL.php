@@ -61,37 +61,42 @@ var $datos;
                                     <table name="mitabla" class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                            <th id="0" class='nombre'>Nombre</th>
-                                            <th id="1" class='tipo'>Tipo</th>
-                                     
+                                                    <th class='nombre'>Nombre</th>
+                                                    <th class='tipo'>Tipo</th>
+                                                    
+                                                 
+                                                  
+
                                         </thead>
                                        
 
 <?php
-            $contador=0;
+
             foreach ($this->datos as $fila)
             {
                 // para cada fila que viene en el array la escribimos en una fila de la tabla html y cada atributo en una columna (no es un recordset sino un array asociativo)
 
 ?>
                
-               <tr id="fila<?php echo $contador ?>">
-                                                <td id="0"> <h3><?php echo $fila['nombre']; ?></h3> </td>
-                                                <td id="1"> <?php echo $fila['tipo']; ?> </td>
-
-                                      
+               <tr>
+                    <td> <h3><?php echo $fila['nombre']; ?></h3> </td>
+                    <td> <?php echo $fila['tipo']; ?> </td>
+         
                                                 
+                      
 
-                 <td id="2"><button type="button" class="btn btn-primary" height="20" width="20" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioinsertar2'); insertacampo(document.formenviar,'controlador','RETOS');enviaform(document.formenviar);">Añadir nuevo</button></td>  
-                 <td id="2"><button type="button" onclick="cambiacolor2('<?php echo'fila'.$contador ?>')" class="btn btn-danger">Sin completar</button></td>  
+               
+
+                    <td> 
+
+                        <button type="button" class="btn btn-success" height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioeditar2'); insertacampo(document.formenviar,'controlador','RETOS'); insertacampo(document.formenviar,'nombre','<?php echo $fila['nombre']; ?>'); enviaform(document.formenviar);">Marcar completado</button>
+                        
+                    </td>
+                   
                  </tr>
-
-
-
   
                
 <?php
-$contador++;
             }
 ?>
 

@@ -11,6 +11,7 @@ class ENTRENAMIENTO{
 		include './VIEW/ENTRENO_50_VIEW.php';
 		include './VIEW/ENTRENO_100_VIEW.php';
 		include './MODEL/ENTRENAMIENTO_MODEL.php';
+		include './VIEW/MESSAGE_VIEW.php';
         
 
 
