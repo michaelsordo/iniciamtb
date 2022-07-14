@@ -12,6 +12,8 @@ class ENTRENAMIENTO{
 		include './VIEW/ENTRENO_100_VIEW.php';
 		include './MODEL/ENTRENAMIENTO_MODEL.php';
 		include './VIEW/MESSAGE_VIEW.php';
+		include './VIEW/MIS_ENTRENOS_SHOWALL.php';
+
         
 
 
@@ -54,6 +56,25 @@ class ENTRENAMIENTO{
 
 	
 	}
+
+
+	function buscar2(){
+
+		$entrenamientos = new ENTRENAMIENTO_MODEL();
+
+		$respuesta = $entrenamientos->SEARCH();
+
+		// construimos una tabla html empezando con los titulos de las columnas para mostrar los resultados de la busqueda
+		if ($respuesta['ok'] === true){
+		// construimos una tabla html empezando con los titulos de las columnas para mostrar los resultados de la busqueda
+			new MIS_ENTRENOS_SHOWALL($respuesta['resource']);
+		}
+		else{
+			new MESSAGE1($respuesta,'ENTRENAMIENTOS','buscar');
+		}
+
+
+}
 
 	function buscar_entrenamiento25(){
 

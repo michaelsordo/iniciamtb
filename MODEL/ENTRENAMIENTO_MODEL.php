@@ -11,7 +11,9 @@ class ENTRENAMIENTO_MODEL extends Abstract_Model
 {
 
 	//ATRIBUTOS
-	var $distancia;
+	var $id_entrenamiento;
+	var $nombre_usuario;
+	var $fecha_inicio;
 	
 	var $conexion;
 
@@ -26,7 +28,9 @@ class ENTRENAMIENTO_MODEL extends Abstract_Model
 	function fillfields()
 	{
 
-		$this->distancia = '';
+		$this->id_entrenamiento = '';
+		$this->nombre_usuario = '';
+		$this->fecha_inicio = '';
 		
 
 
@@ -34,12 +38,16 @@ class ENTRENAMIENTO_MODEL extends Abstract_Model
 
 
 		if ($_POST) {
-			if (isset($_POST['distancia'])) $this->distancia = $_POST['distancia'];
+			if (isset($_POST['id_entrenamiento'])) $this->id_entrenamiento = $_POST['id_entrenamiento'];
+			if (isset($_POST['nombre_usuario'])) $this->id_entrenamiento = $_POST['nombre_usuario'];
+			if (isset($_POST['fecha_inicio'])) $this->fecha_inicio = $_POST['fecha_inicio'];
 		
 
 		} else {
 			if ($_GET) {
-				if (isset($_GET['distancia'])) $this->distancia = $_GET['distancia'];
+				if (isset($_GET['id_entrenamiento'])) $this->id_entrenamiento = $_GET['id_entrenamiento'];
+				if (isset($_GET['nombre_usuario'])) $this->nombre_usuario = $_GET['nombre_usuario'];
+				if (isset($_GET['fecha_inicio'])) $this->fecha_inicio = $_GET['fecha_inicio'];
 			
 
 			}
@@ -64,7 +72,8 @@ class ENTRENAMIENTO_MODEL extends Abstract_Model
 		$this->query = "SELECT * FROM entrenamientos
 	WHERE
 	(
-		(distancia LIKE '%$this->distancia%') 
+		(id_entrenamiento LIKE '%$this->id_entrenamiento%') and
+		(nombre_usuario = '$_SESSION[nombre_usuario]')
 		
 
 
@@ -87,7 +96,7 @@ class ENTRENAMIENTO_MODEL extends Abstract_Model
 		$this->query = "SELECT * FROM entrenamientos
 					WHERE
 					(
-						(distancia = '$this->distancia')
+						(id_entrenamiento = '$this->id_entrenamiento')
 					)";
 
 		$this->get_one_result_from_query();
