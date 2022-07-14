@@ -119,8 +119,7 @@ var $datos;
 <br>
 <br>
 
-<img src='./VIEW/icons/volver.png' height="40" width="40" onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar'); insertacampo(document.formenviar,'controlador','ENTRENAMIENTO');enviaform(document.formenviar);">
-<br></br>
+
 <br></br>
 <br></br>
 <br></br>
