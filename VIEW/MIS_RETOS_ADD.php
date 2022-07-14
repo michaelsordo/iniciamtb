@@ -34,10 +34,10 @@ class MIS_RETOS_ADD
 				<h2>¿Desea marcar el reto como completado?</h2><BR>
 
 
-        <center><form name="formretosedit" action="index.php" method="post">
+        <center>
 
 
-		<form class="form-horizontal" name="formularioinsertar" id="formularioinsertar" action="index.php" method="post">
+		<form class="form-horizontal" name="formularioinsertar" action="index.php" method="post">
   <div class="form-group">
     <label class="control-label col-sm-2 nombre" for="nombre">Nombre reto:</label>
     <div class="col-sm-10">
@@ -58,7 +58,8 @@ class MIS_RETOS_ADD
 	
 
 
-  <center><button type="button" class="btn btn-primary" onclick = "insertacampo(document.formularioinsertar,'action','insertar2'); insertacampo(document.formularioinsertar,'controlador','RETOS'); enviaform(document.formularioinsertar); enviaformcorrecto(document.formularioinsertar);"> Confirmar </button>
+
+  <center><button type="button" class="btn btn-primary" onclick = "insertacampo(document.formularioinsertar,'action','insertar2'); insertacampo(document.formularioinsertar,'controlador','RETOS'); enviaform(document.formularioinsertar); enviaformcorrecto(document.formularioinsertar);"> Añadir </button> 
 
             <button type="button" class="btn btn-danger" onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar'); insertacampo(document.formenviar,'controlador','RETOS');enviaform(document.formenviar);">Cancelar</button>
 

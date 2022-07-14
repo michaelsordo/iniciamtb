@@ -63,7 +63,7 @@ class RETOS_MODEL extends Abstract_Model
 	function add_retos_usuario()
 	{
 
-		$this->seek();
+		$this->seek2();
 		if (($this->feedback['code']) === '00004') { //existe el usuarios
 			$this->feedback['ok'] = false;
 			$this->feedback['code'] = '02101'; //usuarios ya existe
@@ -190,6 +190,25 @@ class RETOS_MODEL extends Abstract_Model
 					WHERE
 					(
 						(nombre = '$this->nombre')
+					)";
+
+		$this->get_one_result_from_query();
+
+		// recuperamos la unica fila que viene en el recordset resultado de la consulta
+		$fila = $this->rows;
+
+		return $fila;
+	}
+
+
+	function seek2()
+	{
+
+		// construimos la sentencia sql de búsqueda con valor concreto de clave		
+		$this->query = "SELECT * FROM retos_realizados
+					WHERE
+					(
+						(nombre_reto = '$this->nombre_reto')
 					)";
 
 		$this->get_one_result_from_query();

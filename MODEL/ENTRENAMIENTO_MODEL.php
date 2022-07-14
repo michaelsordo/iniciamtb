@@ -60,10 +60,36 @@ class ENTRENAMIENTO_MODEL extends Abstract_Model
 
 	
 
-	function ADD(){
+	function ADD()
+	{
+
+	
+			// construimos la sentencia de insercion en la bd
+			$this->query = 	"INSERT INTO entrenamientos
+
+								(id_entrenamiento,
+								nombre_usuario
+								
+								)
+							VALUES
+								('$this->id_entrenamiento',
+								'$this->nombre_usuario'
+						
+								
+							)";
+			
+			$this->execute_single_query();
+
+			if ($this->feedback['ok']) {
+				$this->feedback['code'] = '00004'; //insertado con exito
+			} else {
+				if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
+					$this->feedback['code'] = '02106'; //insercion fallida
+			}
 		
-		
-}
+
+		return $this->feedback;
+	}
 
 	function SEARCH()
 	{

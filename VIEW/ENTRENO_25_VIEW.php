@@ -28,7 +28,7 @@ var $datos;
       
 		
 			
-				<button type="button" class="btn btn-primary" height="20" width="20" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','formularioinsertar'); insertacampo(document.formenviar,'controlador','USUARIO');enviaform(document.formenviar);">Comenzar entramiento</button>
+				<button type="button" class="btn btn-primary" height="20" width="20" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','anadir25'); insertacampo(document.formenviar,'controlador','ENTRENAMIENTO');enviaform(document.formenviar);">Comenzar entramiento</button>
 				<br>
 				<br>
 
