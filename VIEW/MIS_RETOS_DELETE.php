@@ -29,7 +29,7 @@ var $fila;
         <h2>¿Desea borrar el siguiente reto completado?</h2><BR>
 
 
-<form class="form-horizontal" name="formularioborrar2" action="index.php" method="post">
+<form class="form-horizontal" name="formularioborrar" action="index.php" method="post">
   <div class="form-group">
     <label class="control-label col-sm-2 nombre_reto" for="nombre_reto">Nombre del reto:</label>
     <div class="col-sm-10">
@@ -39,7 +39,7 @@ var $fila;
 
     
 
-  <center><button type="button" class="btn btn-danger" onclick = "insertacampo(document.formularioborrar2,'action','borrar2'); insertacampo(document.formularioborrar2,'controlador','RETOS'); enviaform(document.formularioborrar2);">Confirmar</button>
+  <center><button type="button" class="btn btn-danger" onclick = "insertacampo(document.formularioborrar,'action','borrar'); insertacampo(document.formularioborrar,'controlador','RETOS_USER'); enviaform(document.formularioborrar);">Confirmar</button>
   <button type="button" class="btn btn-primary"onclick="crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar_usuario'); insertacampo(document.formenviar,'controlador','RETOS');enviaform(document.formenviar);">Cancelar </button></center>
 
  
@@ -61,7 +61,6 @@ var $fila;
 
 
 
-<img src='./VIEW/icons/volver.png' height="40" width="40" onclick = "crearform('formenviar','post'); insertacampo(document.formenviar,'action','buscar'); insertacampo(document.formenviar,'controlador','USUARIO');enviaform(document.formenviar);">
 <br>
 <br>
 <br>
