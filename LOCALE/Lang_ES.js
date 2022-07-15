@@ -151,6 +151,7 @@ arrayES = {
 	'02001': 'Exito al insertar la usuario',
 	'02002': 'Usuario modificado correctamente',
 	'02003': 'Usuario borrado correctamente',
+	'12003': 'Entrenamiento completado',
 	'02004': 'Usuario registrado correctamente',
 
 	//exito retos

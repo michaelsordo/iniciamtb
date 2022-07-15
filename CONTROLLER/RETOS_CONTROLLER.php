@@ -208,7 +208,7 @@ function borrar_usuario(){
 	$retos_usuario = new RETOS_MODEL();
 	//comprobamos el resultado de la ejecución de la sentencia sql en la bd
 
-	$respuesta = $retos_usuario->DELETE_mis_retos();
+	$respuesta = $retos_usuario->DELETE_MIS_RETOS();
 
 	new MESSAGE1($respuesta, 'RETOS', 'buscar_usuario');
 	
