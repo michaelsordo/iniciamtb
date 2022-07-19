@@ -29,7 +29,7 @@ function render(){
   <div class="form-group">
     <label class="control-label col-sm-2 tipo" for="tipo">Tipo de reto:</label>
     <div class="col-sm-10">
-      <input type="text" id="tipo" name="tipo" class="form-control">
+      <input type="text" id="tipo" name="tipo" class="form-control" onblur="if (esNoVacio('tipo')) comprobarLetrasNumeros('tipo',20)">
     </div>
   </div>
     
