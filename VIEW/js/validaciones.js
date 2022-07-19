@@ -1,16 +1,10 @@
     
-    //jrodeiro
-    //3/10/2017
-    //cierra la ventan modal de muestra de un mensaje de error
-    //
+  
     function cerrarModal(){
       document.getElementById("modal").style.display = "none"; 
     }
 
-    //jrodeiro
-    //3/10/2017
-    //Abre una ventan modal para mostrar un mensaje de error
-    //    
+
     function abrirModal(idelemento, texto){
       document.getElementById("modal").style.display = "block";   
       document.getElementById("mensajeError").innerHTML = texto;
@@ -19,10 +13,7 @@
     } 
 
 
-    //jrodeiro
-    //25/9/2017
-    //Valida un campo del formulario para ver si viene null o sin contenido
-    //
+   
     function esNoVacio(idelemento){
       
       var correcto = false;
@@ -49,11 +40,7 @@
     }
 
 
-  	//jrodeiro
-    //4/10/2017
-    //Valida la longitud de un texto pasandole el objeto y el tamaño en caracteres letras y numeros que puede tener.
-    //
-    // 
+  
     function comprobarLetrasNumeros(idelemento,size) {
 
       var correcto = true;
@@ -80,11 +67,7 @@
 
     }
 
-    //jrodeiro
-    //26/9/2017
-    //Valida la longitud de un texto pasandole el objeto y el tamaño en caracteres solo letras que puede tener.
-    //
-    // 
+   
     function comprobarSoloLetras(idelemento,size) {
     
       var correcto = true;
@@ -111,9 +94,7 @@
       
     }
 
-    //jrodeiro
-    //25/9/2017
-    //Valida todos los campos del formulario antes de permitir hacer el submit
+
 
     function comprobar_login(){
       
@@ -131,11 +112,7 @@
       }
     }
 
-    //jrodeiro
-    //26/9/2017
-    //Comprueba que sea un email formado correctamente
-    //
-    // 
+   
     function comprobarEmail(idelemento,size) {
     
       var correcto = true;
@@ -162,11 +139,7 @@
       
     }
 
-    //jrodeiro
-    //25/9/2017
-    //Valida la longitud de un int pasandole el objeto y el tamaño en digitos que puede tener.
-    //
-    //
+   
     function comprobarSoloNumeros(idelemento,size) {
       
       var correcto = true;
@@ -193,87 +166,18 @@
     	
     }
 
-    //jrodeiro
-    //10/10/2017
-    //encriptar()
-    //encripta en md5 el valor del campo password
+    
     function encriptar(){
       document.getElementById('contrasena').value = hex_md5(document.getElementById('contrasena').value);
       return true;
     }
 
-    //jrodeiro
-    //04/10/2017
-    //Valida que un campo lleve el formato nn:nn
-    //
+   
     
-    function comprobarHoras(idelemento) {
-      
-      var correcto = true;
 
-      var patron = /^[0-9]{2}:[0-9]{2}$/; // establecemos un patron para nn:nn
-      if (!patron.test(document.getElementById(idelemento).value)){ // si no cumple el patron 
-        abrirModal(idelemento, "El "+document.getElementById(idelemento).name+" debe ser nn:nn");
-        correcto = false;
-      }
 
-      if (correcto){
-        document.getElementById(idelemento).style.borderColor = 'green'; // ponemos el bordercolor a verde
-        return true; // devolvemos true
-      }
-      else{
-        document.getElementById(idelemento).style.borderColor = 'red';
-        return false;
-      }
-      
-    }
-
-    //jrodeiro
-    //04/10/2017
-    //Comprueba el formato y lo da valido si es dni o nie
-    //
-    
-    function comprobarDni(idelemento) {
-      
-      var correcto = true;
-
-      var validChars = 'TRWAGMYFPDXBNJZSQVHLCKET';
-      var nifRexp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/i;
-      var nieRexp = /^[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]$/i;
-      var str = document.getElementById(idelemento).value.toString().toUpperCase();
-
-      if (!nifRexp.test(str) && !nieRexp.test(str)){
-        abrirModal(idelemento, "El "+document.getElementById(idelemento).name+" tiene formato incorrecto");
-        correcto = false;        
-      } 
-      else{
-        var nie = str
-            .replace(/^[X]/, '0')
-            .replace(/^[Y]/, '1')
-            .replace(/^[Z]/, '2');
-
-        var letter = str.substr(-1);
-        var charIndex = parseInt(nie.substr(0, 8)) % 23;
-
-        if (validChars.charAt(charIndex) === letter){
-          correcto = true;
-        }
-        else{
-          abrirModal(idelemento, "El "+document.getElementById(idelemento).name+" tiene formato incorrecto");
-          correcto =  false;
-        }
-      }
-
-      if (correcto){
-        document.getElementById(idelemento).style.borderColor = 'green'; // ponemos el bordercolor a verde
-        return true; // devolvemos true
-      }
-      else{
-        document.getElementById(idelemento).style.borderColor = 'red';
-        return false;
-      }
-      
-    }
+  
+   
   
    function comprobarLongitud(idelemento, size){
       
@@ -342,9 +246,7 @@
     }
 
 
-    //jrodeiro
-    //25/9/2017
-    //Valida todos los campos del formulario antes de permitir hacer el submit
+
 
     function comprobar_registro(){
       
@@ -364,9 +266,7 @@
       }
     }
 
-    //jrodeiro
-    //25/9/2017
-    //Valida todos los campos del formulario antes de permitir hacer el submit
+
 
     function comprobar_login(){
       
@@ -384,18 +284,4 @@
       }
     }
 
-    //jrodeiro
-    //28/10/2017
-    //Valida todos los campos del formulario antes de permitir hacer el submit
-
-    /*function comprobar_EVALUACION(){
-      
-      if (comprobarLongitud('ComentarioIncorrecto',300)){
-        // si todas estan correctas devuelve un true
-        return true;
-      }
-      else{
-        // si alguna falla devuelve un false
-        return false;
-      }
-    }*/
+    
