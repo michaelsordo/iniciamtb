@@ -143,7 +143,7 @@ class RETOS_USER_MODEL extends Abstract_Model
 		$this->execute_single_query();
 
 		if ($this->feedback['ok']) {
-			$this->feedback['code'] = '02003'; //borrado con exito
+			$this->feedback['code'] = '00008'; //borrado con exito
 		} else {
 			if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
 				$this->feedback['code'] = '02108'; //borrado fallido

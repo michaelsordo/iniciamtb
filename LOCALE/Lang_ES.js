@@ -77,6 +77,8 @@ arrayES = {
 	'00005': 'Reto modificado correctamente',
 	'00006': 'Reto borrado correctamente',
 	'00007': 'Mensaje borrado correctamente',
+	'00008': 'Reto eliminado del historial',
+
 
 
 	//header
