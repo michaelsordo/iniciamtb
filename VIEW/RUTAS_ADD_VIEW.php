@@ -23,7 +23,7 @@ function render(){
 <div class="form-group">
     <label class="control-label col-sm-2 id" for="id">ID:</label>
     <div class="col-sm-10">
-      <input type="number" id="id" name="id" class="form-control">
+      <input type="number" id="id" name="id" class="form-control" onblur="if (esNoVacio('id'))comprobarLetrasNumeros('id',3)">
     </div>
   </div>
   <div class="form-group">
@@ -35,13 +35,13 @@ function render(){
   <div class="form-group">
     <label class="control-label col-sm-2 descripcion" for="descripcion">Descripcion:</label>
     <div class="col-sm-10">
-      <input type="text" id="descripcion" name="descripcion" class="form-control">
+      <input type="text" id="descripcion" name="descripcion" class="form-control" onblur="if (esNoVacio('descripcion')) comprobarLetrasNumeros('descripcion',150)">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2 enlace" for="enlace">Enlace:</label>
     <div class="col-sm-10">
-      <input type="text" id="enlace" name="enlace" class="form-control">
+      <input type="text" id="enlace" name="enlace" class="form-control" onblur="if (esNoVacio('enlace'))">
     </div>
   </div>
 
