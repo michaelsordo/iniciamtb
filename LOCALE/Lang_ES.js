@@ -71,6 +71,10 @@ arrayES = {
 	'02003': 'Usuario borrado correctamente',
 	'12003': 'Entrenamiento completado',
 	'02004': 'Usuario registrado correctamente',
+	'00009': 'Ruta añadida correctamente',
+	'00010': 'Ruta editada correctamente',
+	'00011': 'Ruta eliminada correctamente',
+
 
 	//exito retos
 	'00004': 'Reto añadido correctamente',
@@ -78,6 +82,9 @@ arrayES = {
 	'00006': 'Reto borrado correctamente',
 	'00007': 'Mensaje borrado correctamente',
 	'00008': 'Reto eliminado del historial',
+
+
+	
 
 
 

@@ -87,7 +87,7 @@ class RUTAS_MODEL extends Abstract_Model
 			$this->execute_single_query();
 
 			if ($this->feedback['ok']) {
-				$this->feedback['code'] = '00004'; //insertado con exito
+				$this->feedback['code'] = '00009'; //insertado con exito
 			} else {
 				if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
 					$this->feedback['code'] = '02106'; //insercion fallida
@@ -181,7 +181,7 @@ class RUTAS_MODEL extends Abstract_Model
 		$this->execute_single_query();
 
 		if ($this->feedback['ok']) {
-			$this->feedback['code'] = '02002'; //modificado con exito
+			$this->feedback['code'] = '00010'; //modificado con exito
 		} else {
 			if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
 				$this->feedback['code'] = '02107'; //modificacion fallida
@@ -202,7 +202,7 @@ class RUTAS_MODEL extends Abstract_Model
 		$this->execute_single_query();
 
 		if ($this->feedback['ok']) {
-			$this->feedback['code'] = '00007'; //borrado con exito
+			$this->feedback['code'] = '00011'; //borrado con exito
 		} else {
 			if ($this->feedback['code'] != '00000') //sino es fallo conexion gestor
 				$this->feedback['code'] = '02108'; //borrado fallido
