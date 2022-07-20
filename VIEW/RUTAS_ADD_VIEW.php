@@ -29,13 +29,13 @@ function render(){
   <div class="form-group">
     <label class="control-label col-sm-2 nombre" for="nombre">Nombre:</label>
     <div class="col-sm-10">
-      <input type="text" name="nombre" id="nombre" class="form-control" onblur="if (esNoVacio('nombre')) comprobarLetrasNumeros('nombre',15)">
+      <input type="text" name="nombre" id="nombre" class="form-control" onblur="if (esNoVacio('nombre')) comprobarLetrasNumeros('nombre',150)">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2 descripcion" for="descripcion">Descripcion:</label>
     <div class="col-sm-10">
-      <input type="text" id="descripcion" name="descripcion" class="form-control" onblur="if (esNoVacio('descripcion')) comprobarLetrasNumeros('descripcion',150)">
+      <input type="text" id="descripcion" name="descripcion" class="form-control" onblur="if (esNoVacio('descripcion')) comprobarLetrasNumeros('descripcion',200)">
     </div>
   </div>
   <div class="form-group">
